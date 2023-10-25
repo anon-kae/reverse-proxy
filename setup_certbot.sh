@@ -1,5 +1,6 @@
 #!/bin/bash
-apt install url lsb-release
+apt update
+apt install -y certbot curl lsb-release
 
 # ขั้นตอนการติดตั้ง Certbot
 if [[ $(lsb_release -is) == "Ubuntu" ]]; then
