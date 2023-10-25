@@ -4,10 +4,10 @@ apt install -y certbot curl lsb-release
 
 # ขอใบรับรอง
 read -p "โปรดระบุโดเมนของคุณ (เช่น example.com): " DOMAIN
-sudo certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN
+certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN
 
 # แสดงข้อมูลการต่ออายุใบรับรอง
-sudo certbot renew --dry-run
+certbot renew --dry-run
 
 echo "การตั้งค่าเสร็จสมบูรณ์! กรุณาตรวจสอบการตั้งค่าเซิร์ฟเวอร์ของคุณเพื่อใช้ใบรับรองนี้."
 

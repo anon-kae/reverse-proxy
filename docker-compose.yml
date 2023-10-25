@@ -11,7 +11,7 @@ services:
     ports:
       - "80:80"
     entrypoint: /usr/local/bin/setup_certbot.sh
-    command: nginx -g "daemon off;"
+    command: sh -c "mkdir -p /var/run/nginx && nginx -g 'daemon off;'"
   app:
     image: web_api_smart_locker
     ports:
