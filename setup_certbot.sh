@@ -2,18 +2,6 @@
 apt update
 apt install -y certbot curl lsb-release
 
-# ขั้นตอนการติดตั้ง Certbot
-if [[ $(lsb_release -is) == "Ubuntu" ]]; then
-    sudo apt update
-    sudo apt install -y certbot
-elif [[ $(lsb_release -is) == "CentOS" ]]; then
-    sudo yum install -y epel-release
-    sudo yum install -y certbot
-else
-    echo "ระบบปฏิบัติการนี้ไม่ได้รับการสนับสนุนในสคริปต์นี้"
-    exit 1
-fi
-
 # ขอใบรับรอง
 read -p "โปรดระบุโดเมนของคุณ (เช่น example.com): " DOMAIN
 sudo certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN
