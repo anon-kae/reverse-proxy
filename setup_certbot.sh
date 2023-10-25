@@ -1,5 +1,6 @@
 #!/bin/bash
 domain=$DOMAIN
+email=$EMAIL
 echo "Domain from ENV: $domain"
 
 apt update
@@ -8,7 +9,7 @@ apt install -y certbot curl lsb-release
 # ขอใบรับรอง
 # read -p "โปรดระบุโดเมนของคุณ (เช่น example.com): " DOMAIN
 echo "Domain entered: $domain"
-certbot certonly --standalone -d $domain -d www.$domain
+certbot certonly --standalone -d $domain -d www.$domain --email $email --non-interactive --agree-tos
 
 # แสดงข้อมูลการต่ออายุใบรับรอง
 certbot renew --dry-run

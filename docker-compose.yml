@@ -9,6 +9,7 @@ services:
     environment:
       - DOMAIN=alphaalpaca.xyz
       - BACKEND_SERVICE=http://app:5000
+      - EMAIL=anon.ksl42@gmail.com
     ports:
       - "80:80"
       - "443:443"
