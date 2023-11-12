@@ -9,3 +9,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./ssl:/etc/nginx/ssl
     restart: always
+  app:
+    image: web_api_smart_locker
+    ports:
+      - "5000:5000"
