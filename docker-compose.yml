@@ -21,6 +21,8 @@ services:
     links:
       - app
   app:
-    image: web_api_smart_locker
+    build:
+      context: ./root/smart-locker-software-api
+      dockerfile: Dockerfile
     expose:
       - "5000"
