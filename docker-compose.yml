@@ -22,7 +22,7 @@ services:
       - app
   app:
     build:
-      context: ./root/smart-locker-software-api
+      context: ../smart-locker-software-api
       dockerfile: Dockerfile
     expose:
       - "5000"
