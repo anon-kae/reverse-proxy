@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./setup_certbot.sh:/usr/local/bin/setup_certbot.sh
+      - ./default.conf.template:/etc/nginx/conf.d/default.conf.template
+      - /etc/letsencrypt:/etc/letsencrypt
+    environment:
+      - DOMAIN=anoncheck.uk
+      - BACKEND_SERVICE=http://app:5000
+      - EMAIL=anon.ksl42@gmail.com
+    ports:
+      - "80:80"
+      - "443:443"
+    command: /bin/bash -c "mkdir -p /var/run/nginx && /usr/local/bin/setup_certbot.sh && nginx -g 'daemon off;'"
+    entrypoint: /usr/local/bin/setup_certbot.sh
+  app:
+    image: web_api_smart_locker
+    ports:
+      - "5000:5000"
