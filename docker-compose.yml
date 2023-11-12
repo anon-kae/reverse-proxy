@@ -20,5 +20,5 @@ services:
   #     - MSSQL_COLLATION=Thai_CI_AS
   app:
     image: web_api_smart_locker
-    depends_on:
-      - sqlserver
+    ports:
+      - "5000:5000"
