@@ -9,7 +9,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./ssl:/etc/nginx/ssl
     restart: always
-  sql-server:
+  sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
     ports:
       - 1433:1433
@@ -23,4 +23,4 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - sql_server
+      - sqlserver
