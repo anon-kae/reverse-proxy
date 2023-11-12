@@ -13,3 +13,5 @@ services:
     image: web_api_smart_locker
     ports:
       - "5000:5000"
+    depends_on:
+      - sql_server
