@@ -14,8 +14,8 @@ services:
       context:  ./nginx
       dockerfile: Dockerfile
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
       - ./ssl:/etc/nginx/ssl
     links:
@@ -24,6 +24,8 @@ services:
     build:
       context: ../smart-locker-software-api
       dockerfile: Dockerfile
+    expose:
+      - 5000
     environment:
       - ASPNETCORE_URLS=http://+:5000
     restart: unless-stopped
